@@ -86,9 +86,40 @@ results_df = pd.DataFrame(results)
 print("\n--- Model Comparison Results ---")
 print(results_df.to_string(index=False))
 
+# 7. بنطبع جدول المقارنة بين الموديلات
+results_df = pd.DataFrame(results)
+print("\n--- Model Comparison Results ---")
+print(results_df.to_string(index=False))
+
+# --- حطي كود الـ Visualization هنا ---
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# 7. بنطبع جدول المقارنة بين الموديلات
+results_df = pd.DataFrame(results)
+print("\n--- Model Comparison Results ---")
+print(results_df.to_string(index=False))
+
 print(f"\nBest Model: {best_model_name} with Accuracy: {best_acc * 100:.2f}%")
 
-# 8. بنحفظ أفضل موديل في ملف best_model.pkl عشان نربطه بـ Streamlit
+# 8. بنحفظ أفضل موديل عشان نربطه بـ Streamlit
+joblib.dump(best_model_obj, 'best_model.pkl')
+print(f"Saved '{best_model_name}' to 'best_model.pkl' successfully!")
+
+print(f"Training Accuracy: {best_model_obj.score(X_train, y_train) * 100:.2f}%")
+print(f"Testing Accuracy: {best_model_obj.score(X_test, y_test) * 100:.2f}%")
+
+
+
+print(f"\nBest Model: {best_model_name} with Accuracy: {best_acc * 100:.2f}%")
+
+# 8. بنحفظ أفضل موديل...
+
+
+
+print(f"\nBest Model: {best_model_name} with Accuracy: {best_acc * 100:.2f}%")
+
+# 9. بنحفظ أفضل موديل في ملف best_model.pkl عشان نربطه بـ Streamlit
 joblib.dump(best_model_obj, 'best_model.pkl')
 print(f"Saved '{best_model_name}' to 'best_model.pkl' successfully!")
 
